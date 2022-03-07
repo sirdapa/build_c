@@ -1,0 +1,17 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: xcode-dev/build_c
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+      
+trigger:
+  branch:
+  - master
